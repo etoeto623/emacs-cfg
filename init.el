@@ -25,13 +25,25 @@
 (custom-set-faces
 )
 
+;;auto-complete
+(add-to-list 'load-path "C:/emacs/.emacs.d/plugin/auto-complete/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "C:/emacs/.emacs.d/plugin/auto-complete/dict")
+(ac-config-default)
+
+;; autopair
+(add-to-list 'load-path "C:/emacs/.emacs.d/plugin/autopair/")
+(require 'autopair)
+(autopair-global-mode)
+
+
 ;;设置org-capture全局快捷键
 (define-key global-map "\C-cc" 'org-capture)
 ;;设置capture模板
 (setq org-capture-templates
-      '(("j" "Journal" entry (file+datetree "E:/lisp/capture/emacs/journal.org")
+      '(("j" "Journal" entry (file+datetree "E:/代码收集/lisp/capture/emacs/journal.org")
 	 "* %?\nEntered on %U\n  %i\n  %a")
-	("t" "Todo" entry (file+headline "E:/lisp/capture/emacs/gtd.org" "Tasks")
+	("t" "Todo" entry (file+headline "E:/代码收集/lisp/capture/emacs/gtd.org" "Tasks")
 	 "* TODO %?\n  %i\n  %a")))
 ;;快速启动日记
 (define-key global-map "\C-cj"
